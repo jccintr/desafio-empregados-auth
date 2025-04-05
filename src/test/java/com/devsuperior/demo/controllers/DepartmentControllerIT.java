@@ -42,7 +42,7 @@ public class DepartmentControllerIT {
 	}
 	
 	@Test
-	public void findAllShouldReturnAllResourcesSortedByNameWhenAdminLogged() throws Exception {
+	public void findAllShouldReturnAllResourcesSortedByNameWhenAdminLogged() throws Exception { // implementado
 		
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
 		
@@ -58,7 +58,7 @@ public class DepartmentControllerIT {
 	}
 	
 	@Test
-	public void findAllShouldReturnAllResourcesSortedByNameWhenEmployeeLogged() throws Exception {
+	public void findAllShouldReturnAllResourcesSortedByNameWhenOperatorLogged() throws Exception { // implementado
 		
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, operatorUsername, operatorPassword);
 		
@@ -74,7 +74,7 @@ public class DepartmentControllerIT {
 	}
 	
 	@Test
-	public void findAllShouldReturn401WhenNoUserLogged() throws Exception {
+	public void findAllShouldReturn401WhenNoUserLogged() throws Exception { // implementado
 		
 		ResultActions result =
 				mockMvc.perform(get("/departments")
