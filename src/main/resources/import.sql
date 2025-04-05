@@ -16,3 +16,14 @@ INSERT INTO tb_employee(name, email, department_id) VALUES ('Tiago', 'tiago@gmai
 INSERT INTO tb_employee(name, email, department_id) VALUES ('Andressa', 'andressa@gmail.com', 2);
 INSERT INTO tb_employee(name, email, department_id) VALUES ('Meire', 'meire@gmail.com', 3);
 INSERT INTO tb_employee(name, email, department_id) VALUES ('Carol', 'carol@gmail.com', 1);
+
+INSERT INTO users (name,email, password) VALUES ('Ana','ana@gmail.com', '$2a$10$e1zv4PUeNpbrbRYpJmk0euJnt5xNI0PGcYMxrSX8t6kJrAmOZSS/S');
+INSERT INTO users (name,email, password) VALUES ('Bob','bob@gmail.com', '$2a$10$e1zv4PUeNpbrbRYpJmk0euJnt5xNI0PGcYMxrSX8t6kJrAmOZSS/S');
+
+INSERT INTO roles (authority) VALUES ('ROLE_OPERATOR');
+INSERT INTO roles (authority) VALUES ('ROLE_ADMIN');
+
+INSERT INTO user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO user_role (user_id, role_id) VALUES (2, 2);
+
+
