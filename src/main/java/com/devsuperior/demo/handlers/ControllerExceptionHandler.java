@@ -9,8 +9,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.devsuperior.demo.controllers.exceptions.StandardError;
 import com.devsuperior.demo.controllers.exceptions.ValidationError;
-import com.devsuperior.demo.exceptions.StandardError;
 import com.devsuperior.demo.services.exceptions.ForbiddenException;
 import com.devsuperior.demo.services.exceptions.IntegrityViolationException;
 import com.devsuperior.demo.services.exceptions.ResourceNotFoundException;

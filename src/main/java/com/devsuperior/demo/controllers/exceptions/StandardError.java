@@ -1,4 +1,4 @@
-package com.devsuperior.demo.exceptions;
+package com.devsuperior.demo.controllers.exceptions;
 
 import java.io.Serializable;
 import java.time.Instant;

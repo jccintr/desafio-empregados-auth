@@ -47,7 +47,7 @@ public class EmployeeControllerIT {
 	}
 	
 	@Test
-	public void insertShouldReturn403WhenOperatorLogged() throws Exception {
+	public void insertShouldReturn403WhenOperatorLogged() throws Exception { // implementado
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, operatorUsername, operatorPassword);
 
@@ -65,7 +65,7 @@ public class EmployeeControllerIT {
 	}	
 
 	@Test
-	public void insertShouldReturn401WhenNoUserLogged() throws Exception {
+	public void insertShouldReturn401WhenNoUserLogged() throws Exception {  // esta com erro
 
 		EmployeeDTO dto = new EmployeeDTO(null, "Joaquim", "joaquim@gmail.com", 1L);
 		String jsonBody = objectMapper.writeValueAsString(dto);
@@ -80,7 +80,7 @@ public class EmployeeControllerIT {
 	}	
 	
 	@Test
-	public void insertShouldInsertResourceWhenAdminLoggedAndCorrectData() throws Exception {
+	public void insertShouldInsertResourceWhenAdminLoggedAndCorrectData() throws Exception { // implementado
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
 
@@ -102,7 +102,7 @@ public class EmployeeControllerIT {
 	}	
 
 	@Test
-	public void insertShouldReturn422WhenAdminLoggedAndBlankName() throws Exception {
+	public void insertShouldReturn422WhenAdminLoggedAndBlankName() throws Exception {  // implementado
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
 
@@ -122,7 +122,7 @@ public class EmployeeControllerIT {
 	}
 
 	@Test
-	public void insertShouldReturn422WhenAdminLoggedAndInvalidEmail() throws Exception {
+	public void insertShouldReturn422WhenAdminLoggedAndInvalidEmail() throws Exception { // implementado
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
 
@@ -142,7 +142,7 @@ public class EmployeeControllerIT {
 	}
 
 	@Test
-	public void insertShouldReturn422WhenAdminLoggedAndNullDepartment() throws Exception {
+	public void insertShouldReturn422WhenAdminLoggedAndNullDepartment() throws Exception { // implementado
 
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
 
@@ -160,4 +160,5 @@ public class EmployeeControllerIT {
 		result.andExpect(jsonPath("$.errors[0].fieldName").value("departmentId"));
 		result.andExpect(jsonPath("$.errors[0].message").value("Campo requerido"));
 	}
+	
 }

@@ -2,11 +2,22 @@ package com.devsuperior.demo.dto;
 
 import com.devsuperior.demo.entities.Employee;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class EmployeeDTO {
 	
 	private Long id;
+	
+	@NotBlank(message = "Campo requerido")
 	private String name;
+	
+	@NotBlank(message = "Campo requerido")
+	@Email(message="Email inválido",regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
 	private String email;
+	
+	@NotNull(message="Campo requerido")
 	private Long departmentId;
 	
 	public EmployeeDTO() {

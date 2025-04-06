@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.devsuperior.demo.dto.FieldMessage;
-import com.devsuperior.demo.exceptions.StandardError;
 
 public class ValidationError extends StandardError {
 
