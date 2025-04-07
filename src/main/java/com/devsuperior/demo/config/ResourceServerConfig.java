@@ -26,6 +26,12 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class ResourceServerConfig {
+	
+	/*
+	private static final String[] PUBLIC_ENDPOINTS = {
+	        "/public/**"
+	    };
+	    */
 
 	@Value("${cors.origins}")
 	private String corsOrigins;
@@ -43,11 +49,30 @@ public class ResourceServerConfig {
 	@Bean
 	@Order(3)
 	public SecurityFilterChain rsSecurityFilterChain(HttpSecurity http) throws Exception {
+		
 		http.csrf(csrf -> csrf.disable());
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll());
 		http.oauth2ResourceServer(oauth2ResourceServer -> oauth2ResourceServer.jwt(Customizer.withDefaults()));
 		http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
 		return http.build();
+		
+		
+		/*
+			//este funcionou também
+			http
+	        .csrf(csrf -> csrf.disable())
+	        .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+	        .authorizeHttpRequests(auth -> auth
+	            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+	            .requestMatchers("/public/**").permitAll()
+	            .anyRequest().authenticated()
+	        )
+	        .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+	        .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
+	        .exceptionHandling(ex -> ex.authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint()));
+	
+	          return http.build();
+        */
 	}
 
 	@Bean
